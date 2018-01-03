@@ -46,10 +46,13 @@ function mdlr_block_styles_example_backend_enqueue() {
 add_action( 'enqueue_block_editor_assets', 'mdlr_block_styles_example_backend_enqueue' );
 
 /**
- * Enqueue the block's assets for the frontend.
+ * Enqueue the block's assets.
+ *
+ * It should be noted that this hook fires on both the frontend
+ * and the backend.
  *
  * CSS dependencies:
- * wp-blocks: The WordPress core frontend block styles.
+ * wp-blocks: The WordPress core block styles.
  *
  * @since 1.0.0
  */
@@ -61,4 +64,4 @@ function mdlr_block_styles_example_frontend_enqueue() {
 		filemtime( plugin_dir_path( __FILE__ ) . 'style.css' ) // filemtime — Gets file modification time.
 	);
 }
-add_action( 'enqueue_block_editor_assets', 'mdlr_block_styles_example_frontend_enqueue' );
+add_action( 'enqueue_block_assets', 'mdlr_block_styles_example_frontend_enqueue' );
