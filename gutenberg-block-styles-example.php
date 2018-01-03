@@ -56,12 +56,12 @@ add_action( 'enqueue_block_editor_assets', 'mdlr_block_styles_example_backend_en
  *
  * @since 1.0.0
  */
-function mdlr_block_styles_example_frontend_enqueue() {
+function mdlr_block_styles_example_enqueue() {
 	wp_enqueue_style(
-		'mdlr-block-styles-example-frontend-style', // Handle.
+		'mdlr-block-styles-example-style', // Handle.
 		plugins_url( 'style.css', __FILE__ ), // style.css: This file styles the block on the frontend.
 		array( 'wp-blocks' ), // Dependencies, defined above.
 		filemtime( plugin_dir_path( __FILE__ ) . 'style.css' ) // filemtime — Gets file modification time.
 	);
 }
-add_action( 'enqueue_block_assets', 'mdlr_block_styles_example_frontend_enqueue' );
+add_action( 'enqueue_block_assets', 'mdlr_block_styles_example_enqueue' );
