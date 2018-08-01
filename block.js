@@ -7,7 +7,7 @@
 	var __                = wp.i18n.__; // The __() function for internationalization.
 	var createElement     = wp.element.createElement; // The wp.element.createElement() function to create elements.
 	var registerBlockType = wp.blocks.registerBlockType; // The registerBlockType() function to register blocks.
-	var Editable          = wp.blocks.Editable; // For creating editable elements.
+	var RichText          = wp.editor.RichText; // For creating editable elements.
 
 	/**
 	 * Register block
@@ -26,7 +26,7 @@
 			attributes: {
 				content: {
 					type: 'string',
-					default: 'Block content styled with CSS...',
+					default: 'Block content styled with CSS...'
 				},
 			},
 
@@ -39,7 +39,7 @@
 				}
 
 				return createElement(
-					Editable,
+					RichText,
 					{
 						tagName: 'p',
 						className: props.className,
