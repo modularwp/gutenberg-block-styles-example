@@ -7,7 +7,7 @@
 	var __                = wp.i18n.__; // The __() function for internationalization.
 	var createElement     = wp.element.createElement; // The wp.element.createElement() function to create elements.
 	var registerBlockType = wp.blocks.registerBlockType; // The registerBlockType() function to register blocks.
-	var Editable          = wp.blocks.Editable; // For creating editable elements.
+	var RichText          = wp.editor.RichText; // For creating editable elements.
 
 	/**
 	 * Register block
@@ -25,8 +25,10 @@
 			category: 'common', // Block category. Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 			attributes: {
 				content: {
-					type: 'string',
-					default: 'Block content styled with CSS...',
+					type: 'array',
+					source: 'children',
+					selector: 'p',
+					default: 'Block content styled with CSS...'
 				},
 			},
 
@@ -39,7 +41,7 @@
 				}
 
 				return createElement(
-					Editable,
+					RichText,
 					{
 						tagName: 'p',
 						className: props.className,
